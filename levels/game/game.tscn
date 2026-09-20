@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://5be1kq70pmrf"]
+
+[node name="Game" type="Node2D" unique_id=294026618]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2080779484]
+
+[node name="Wheel" type="Node2D" parent="." unique_id=596641362]
+
+[node name="Pointer" type="Node2D" parent="." unique_id=2062994313]

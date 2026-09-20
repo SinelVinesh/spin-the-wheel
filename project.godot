@@ -11,5 +11,12 @@ config_version=5
 [application]
 
 config/name="Spin The Wheel!"
+run/main_scene="uid://5be1kq70pmrf"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=false
