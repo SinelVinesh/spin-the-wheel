@@ -1,10 +1,11 @@
 extends CanvasLayer
 
-var label_mapping: Dictionary = {}
+const SEED = "SEED"
+
+var _label_mapping: Dictionary[String,Label] = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_initialize()
 	EventBus.seed_updated.connect(_update_seed)
 
 func create_debug_line(title: String, data: Variant) -> void:
@@ -17,13 +18,13 @@ func create_debug_line(title: String, data: Variant) -> void:
 	container.add_child(title_label)
 	container.add_child(data_label)
 	%LogWindow.add_child(container)
-	label_mapping[title] = data_label
+	_label_mapping[title] = data_label
 
 func _initialize() -> void:
-	create_debug_line("Seed", RandomManager.game_seed)
+	create_debug_line(SEED, RandomManager.game_seed)
 
 func _update_seed() -> void:
-	if "Seed" in label_mapping:
-		label_mapping["Seed"].text = RandomManager.game_seed
+	if SEED in _label_mapping:
+		_label_mapping[SEED].text = RandomManager.game_seed
 	else:
-		create_debug_line("Seed", RandomManager.game_seed)
+		create_debug_line(SEED, RandomManager.game_seed)
