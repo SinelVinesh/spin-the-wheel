@@ -6,3 +6,5 @@ extends Node2D
 func _ready() -> void:
 	if debugMode:
 		EventBus.run_init_requested.emit(debugContext)
+	else:
+		EventBus.run_init_requested.emit(null)
