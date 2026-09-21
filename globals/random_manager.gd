@@ -9,8 +9,9 @@ var rng = RandomNumberGenerator.new()
 func _ready() -> void:
 	EventBus.run_init_requested.connect(_init_seed)
 	
-func _init_seed(context: RunContext):
-	game_seed = context.game_seed
+func _init_seed(context: RunContext) -> void:
+	if game_seed != null:
+		game_seed = context.game_seed
 	if !_valid_seed():
 		print_debug("Invalid seed '%s' provided. Generating a new seed." % game_seed)
 		_generate_seed()
@@ -24,7 +25,7 @@ func _valid_seed() -> bool:
 		return false
 	return true
 	
-func _generate_seed():
+func _generate_seed() -> void:
 	game_seed = ""
 	var n_char = len(VALID_CHARACTERS)
 	for i in range(10):
