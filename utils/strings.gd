@@ -1,7 +1,7 @@
 class_name Strings
-extends Node
+extends RefCounted
 
-## all_char_in_set checks that all character of the string a is in the set b
+## all_char_in_set checks that all characters of a are in the b set
 static func all_char_in_set(a: String, b: String) -> bool:
 	for c in a:
 		if c not in b:
