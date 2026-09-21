@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SectionTypeInfo" format=3 uid="uid://qbpoc0xymj0m"]
+
+[ext_resource type="Script" uid="uid://bvtk5v8b4caqr" path="res://data/section_types/effects/earn_points_effect.gd" id="1_723j1"]
+[ext_resource type="Script" uid="uid://cslm1likaxod7" path="res://data/section_types/section_type_info.gd" id="2_ivhaq"]
+
+[sub_resource type="Resource" id="Resource_cjbnx"]
+script = ExtResource("1_723j1")
+points = 50
+metadata/_custom_type_script = "uid://bvtk5v8b4caqr"
+
+[resource]
+script = ExtResource("2_ivhaq")
+name = "Rare"
+description = "Rare"
+effect = SubResource("Resource_cjbnx")
+metadata/_custom_type_script = "uid://cslm1likaxod7"
