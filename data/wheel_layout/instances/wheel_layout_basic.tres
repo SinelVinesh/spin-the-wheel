@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="WheelLayoutInfo" format=3 uid="uid://dvg23oni7lss6"]
+
+[ext_resource type="Script" uid="uid://cnsb03r0ar4qr" path="res://data/wheel_layout/wheel_layout_info.gd" id="1_lbbny"]
+[ext_resource type="Script" uid="uid://cslm1likaxod7" path="res://data/section_types/section_type_info.gd" id="2_rh84i"]
+[ext_resource type="Resource" uid="uid://b20ndxta14x1r" path="res://data/section_types/instances/section_type_common.tres" id="3_ye87i"]
+[ext_resource type="Resource" uid="uid://qbpoc0xymj0m" path="res://data/section_types/instances/section_type_rare.tres" id="4_m5rlp"]
+[ext_resource type="Resource" uid="uid://mptxornn7yqs" path="res://data/section_types/instances/section_type_jackpot.tres" id="5_4rlgr"]
+
+[resource]
+script = ExtResource("1_lbbny")
+name = "Basic Wheel"
+sections = Array[ExtResource("2_rh84i")]([ExtResource("3_ye87i"), ExtResource("4_m5rlp"), ExtResource("3_ye87i"), ExtResource("3_ye87i"), ExtResource("4_m5rlp"), ExtResource("3_ye87i"), ExtResource("3_ye87i"), ExtResource("5_4rlgr")])
+metadata/_custom_type_script = "uid://cnsb03r0ar4qr"
