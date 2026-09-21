@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_uyo5c")
-game_seed = "deadpixel"
+game_seed = "deadpixels"
 metadata/_custom_type_script = "uid://culhnf1dmqg5i"
