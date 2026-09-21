@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RunContext" format=3 uid="uid://dhccmv2abf84"]
+
+[ext_resource type="Script" uid="uid://culhnf1dmqg5i" path="res://data/run/run_context.gd" id="1_uyo5c"]
+
+[resource]
+script = ExtResource("1_uyo5c")
+game_seed = "deadpixels"
+metadata/_custom_type_script = "uid://culhnf1dmqg5i"
