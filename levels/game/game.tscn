@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://5be1kq70pmrf"]
 
+[ext_resource type="Script" uid="uid://d10yo8ojo8gpb" path="res://levels/game/game.gd" id="1_2oeyt"]
+[ext_resource type="PackedScene" uid="uid://c5kk27437ua1v" path="res://ui/debug_window/debug_window.tscn" id="1_sg147"]
+[ext_resource type="Resource" uid="uid://dhccmv2abf84" path="res://data/run/instances/debug.tres" id="2_71jyj"]
+
 [node name="Game" type="Node2D" unique_id=294026618]
+script = ExtResource("1_2oeyt")
+debugMode = true
+debugContext = ExtResource("2_71jyj")
+
+[node name="DebugWindow" parent="." unique_id=1789738310 instance=ExtResource("1_sg147")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2080779484]
 

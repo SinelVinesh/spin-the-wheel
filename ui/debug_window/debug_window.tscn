@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c5kk27437ua1v"]
+
+[ext_resource type="Script" uid="uid://dmqs6xrdxv7jk" path="res://ui/debug_window/debug_window.gd" id="1_2p108"]
+
+[node name="DebugWindow" type="CanvasLayer" unique_id=1789738310]
+script = ExtResource("1_2p108")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=652633843]
+offset_right = 184.0
+offset_bottom = 200.0
+
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer" unique_id=836771009]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/PanelContainer" unique_id=944114892]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="LogWindow" type="VBoxContainer" parent="ScrollContainer/PanelContainer/MarginContainer" unique_id=1521871480]
+unique_name_in_owner = true
+layout_mode = 2
