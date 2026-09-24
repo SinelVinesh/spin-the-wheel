@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b8snum64515gr"]
+
+[ext_resource type="Script" uid="uid://iw22odlpu7si" path="res://entities/section/section.gd" id="1_3ni08"]
+[ext_resource type="Resource" uid="uid://b20ndxta14x1r" path="res://data/section_types/instances/common.tres" id="2_2k2q1"]
+[ext_resource type="Texture2D" uid="uid://duno3ffe230dv" path="res://assets/section.aseprite" id="2_o48sy"]
+[ext_resource type="Shader" uid="uid://dqp3yum3h60m7" path="res://entities/section/section.gdshader" id="3_2k2q1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o48sy"]
+resource_local_to_scene = true
+shader = ExtResource("3_2k2q1")
+shader_parameter/weight = 60.0
+shader_parameter/border_px = 6.0
+shader_parameter/darken = 0.95
+shader_parameter/circle_radius = 0.5
+
+[node name="Section" type="Area2D" unique_id=246836308]
+script = ExtResource("1_3ni08")
+section_type = ExtResource("2_2k2q1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1748239688]
+unique_name_in_owner = true
+modulate = Color(0.475, 0.7283333, 0.95, 1)
+material = SubResource("ShaderMaterial_o48sy")
+texture = ExtResource("2_o48sy")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"pending_changes": {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "",
+"source_uid": -1
+}
+}
+
+[node name="Collision" type="CollisionPolygon2D" parent="." unique_id=1446778394]
+unique_name_in_owner = true
+visible = false
+polygon = PackedVector2Array(0, 0, 0, -201, 14.021051, -200.51038, 27.973793, -199.04388, 41.79025, -196.60767, 55.403107, -193.21361, 68.74605, -188.87822, 81.75407, -183.62263, 94.363785, -177.47247, 106.51377, -170.45767, 118.14484, -162.61241, 129.2003, -153.97493, 139.62633, -144.5873, 149.37212, -134.49525, 158.39017, -123.747955, 166.63655, -112.39777, 174.0711, -100.5)
+
+[node name="Label" type="Label" parent="." unique_id=885839400]
+unique_name_in_owner = true
+offset_left = 40.0
+offset_top = -10.0
+offset_right = 143.0
+offset_bottom = 13.0
+pivot_offset = Vector2(-40, 10)
+text = "Section Label"

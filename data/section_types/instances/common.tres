@@ -14,5 +14,6 @@ name = "Common"
 color = Color(0.475, 0.7283333, 0.95, 1)
 description = "Common"
 effect = SubResource("Resource_cjbnx")
-initial_weight = 8
+initial_weight = 10.0
+weight = 60.0
 metadata/_custom_type_script = "uid://cslm1likaxod7"
