@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://e7p2v3eu2u4k"]
+
+[ext_resource type="Script" uid="uid://pqkjop2xx21v" path="res://entities/wheel/wheel.gd" id="1_mwp4l"]
+[ext_resource type="Resource" uid="uid://dvg23oni7lss6" path="res://data/wheel_layouts/instances/basic.tres" id="2_xdq01"]
+
+[node name="Wheel" type="Node2D" unique_id=1722995780]
+script = ExtResource("1_mwp4l")
+layout = ExtResource("2_xdq01")
+loop_wheel_render_in_editor = false

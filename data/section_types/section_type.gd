@@ -8,8 +8,8 @@ extends Resource
 ## Initial size and probability for the section to be selected.
 ## (arbitrary value)
 @export var initial_weight: float
-## Runtime size and probability for the section to be selected. (between 0 and 1)
-var weight: float
+## Runtime size and probability for the section to be selected. (between 0 and 360)
+@export_range(0,360) var weight: float
 
 func trigger() -> void:
 	if effect != null:

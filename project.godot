@@ -25,3 +25,7 @@ RandomManager="*uid://cnjb2cd7moh0r"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
