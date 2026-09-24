@@ -51,11 +51,13 @@ polygon = PackedVector2Array(0, 0, 0, -201, 14.021051, -200.51038, 27.973793, -1
 
 [node name="Label" type="Label" parent="." unique_id=885839400]
 unique_name_in_owner = true
-offset_left = 100.0
-offset_top = -11.5
-offset_right = 203.0
-offset_bottom = 11.5
+offset_left = 66.0
+offset_top = -10.0
+offset_right = 166.0
+offset_bottom = 10.0
 rotation = -1.0471976
-pivot_offset = Vector2(-100, 11.5)
-theme_override_font_sizes/font_size = 16
+pivot_offset = Vector2(-66, 10)
+theme_override_font_sizes/font_size = 14
 text = "Section Label"
+horizontal_alignment = 1
+autowrap_mode = 2

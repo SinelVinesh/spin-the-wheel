@@ -9,7 +9,7 @@ func _ready() -> void:
 		if section_type.weight == 0:
 			section_type.weight = section_type.initial_weight
 		%Sprite2D.modulate = section_type.color
-		%Label.text = section_type.name
+		%Label.text = "%s (%s)" % [section_type.name, section_type.description]
 		_update_label()
 	print("Weight: %s, Initial Weight: %s" % [section_type.weight, section_type.initial_weight])
 
@@ -47,17 +47,17 @@ func _update_label() -> void:
 	if section_type != null:
 		# Rotation and position
 		var angle = section_type.weight / 2 * PI/180
-		var label_x_offset = -%Sprite2D.texture.get_height() / 4
+		var label_x_offset = -%Sprite2D.texture.get_height() / 6
 		var label_y_offset = %Label.get_size().y / 2
 		%Label.pivot_offset = Vector2(label_x_offset, label_y_offset)
 		%Label.rotation = -(PI/2) + angle
 		%Label.position = Vector2(-label_x_offset,-label_y_offset)
 
 		# Font size
-		var font_size = 16
+		var font_size = 14
 		if section_type.weight < 20:
-			font_size = 16 * section_type.weight / 20
+			font_size = 14 * section_type.weight / 20
 		%Label.add_theme_font_size_override("font_size", font_size)
 		# Reset size
-		%Label.size = Vector2.ZERO
+		%Label.size = Vector2(%Sprite2D.texture.get_height()/4,0)
 	
