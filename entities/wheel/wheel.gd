@@ -1,4 +1,5 @@
 @tool
+class_name Wheel
 extends Node2D
 
 @export var layout: WheelLayoutInfo
@@ -49,13 +50,19 @@ func _render_wheel() -> void:
 		instance.section_type = section_type
 		instance.rotation = angle_offset
 		angle_offset += section_type.weight * PI/180
-		add_child(instance)
+		%Sections.add_child(instance)
 
 func _clear_sections() -> void:
-	for child in get_children():
+	for child in %Sections.get_children():
 		child.free()
 
 func _extract_initial_weights(section: SectionTypeInfo) -> float:
 	if section == null:
 		return 0.0
 	return section.initial_weight
+
+func spin() -> void:
+	pass
+
+func compute_result() -> void:
+	print_debug("[Wheel] Computing result")

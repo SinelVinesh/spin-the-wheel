@@ -2,8 +2,27 @@
 
 [ext_resource type="Script" uid="uid://pqkjop2xx21v" path="res://entities/wheel/wheel.gd" id="1_mwp4l"]
 [ext_resource type="Resource" uid="uid://dvg23oni7lss6" path="res://data/wheel_layouts/instances/basic.tres" id="2_xdq01"]
+[ext_resource type="Script" uid="uid://bgarjyeleriqj" path="res://entities/wheel/fsm/state_machine.gd" id="3_tlmd3"]
+[ext_resource type="Script" uid="uid://dmmu2eniu500c" path="res://entities/wheel/fsm/states/idle.gd" id="4_w2md6"]
+[ext_resource type="Script" uid="uid://b7cgnjqg0ugs4" path="res://entities/wheel/fsm/states/spinning.gd" id="5_clh35"]
+[ext_resource type="Script" uid="uid://xdndi8qdanhq" path="res://entities/wheel/fsm/states/stopped.gd" id="6_6u6ga"]
 
 [node name="Wheel" type="Node2D" unique_id=1722995780]
 script = ExtResource("1_mwp4l")
 layout = ExtResource("2_xdq01")
 loop_wheel_render_in_editor = false
+
+[node name="Sections" type="Node2D" parent="." unique_id=1434046298]
+unique_name_in_owner = true
+
+[node name="StateMachine" type="Node" parent="." unique_id=339098724]
+script = ExtResource("3_tlmd3")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=496451332]
+script = ExtResource("4_w2md6")
+
+[node name="Spinning" type="Node" parent="StateMachine" unique_id=948878332]
+script = ExtResource("5_clh35")
+
+[node name="Stopped" type="Node" parent="StateMachine" unique_id=949996793]
+script = ExtResource("6_6u6ga")
