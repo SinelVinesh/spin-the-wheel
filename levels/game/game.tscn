@@ -3,16 +3,22 @@
 [ext_resource type="Script" uid="uid://d10yo8ojo8gpb" path="res://levels/game/game.gd" id="1_2oeyt"]
 [ext_resource type="PackedScene" uid="uid://c5kk27437ua1v" path="res://ui/debug_window/debug_window.tscn" id="1_sg147"]
 [ext_resource type="Resource" uid="uid://dhccmv2abf84" path="res://data/run/instances/debug.tres" id="2_71jyj"]
+[ext_resource type="PackedScene" uid="uid://e7p2v3eu2u4k" path="res://entities/wheel/wheel.tscn" id="3_6ojey"]
 
 [node name="Game" type="Node2D" unique_id=294026618]
 script = ExtResource("1_2oeyt")
 debugMode = true
 debugContext = ExtResource("2_71jyj")
 
+[node name="Wheel" parent="." unique_id=1722995780 instance=ExtResource("3_6ojey")]
+position = Vector2(680, 396)
+rotation = 7.500001
+max_angular_speed = 20.0
+max_speed_to_stop_duration = 2.5
+
 [node name="DebugWindow" parent="." unique_id=1789738310 instance=ExtResource("1_sg147")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2080779484]
 
-[node name="Wheel" type="Node2D" parent="." unique_id=596641362]
-
 [node name="Pointer" type="Node2D" parent="." unique_id=2062994313]
+position = Vector2(29, 414)
