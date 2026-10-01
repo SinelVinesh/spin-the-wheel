@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://2sgeg35s06uw"]
+
+[ext_resource type="Script" uid="uid://dv61meuhcg515" path="res://ui/spin_button/spin_button.gd" id="1_iv8xe"]
+
+[node name="SpinButton" type="Button" unique_id=1741807432]
+text = "SPIN !"
+script = ExtResource("1_iv8xe")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

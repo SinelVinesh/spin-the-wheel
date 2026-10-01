@@ -4,6 +4,7 @@ extends Node
 
 # State change signals
 signal state_change_requested(state_machine_id: int, state_id: int)
+signal wheel_state_changed(old_state: FSMWheelConstants.Wheel, new_state: FSMWheelConstants.Wheel)
 
 # Run signals
 signal run_init_requested(context: RunContext)
