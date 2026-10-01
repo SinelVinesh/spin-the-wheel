@@ -30,3 +30,6 @@ func _generate_seed() -> void:
 	var n_char = len(VALID_CHARACTERS)
 	for i in range(10):
 		game_seed += VALID_CHARACTERS[randi()% n_char]
+
+func randf_range(from: float, to: float) -> float:
+	return rng.randf_range(from, to)

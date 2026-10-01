@@ -9,13 +9,12 @@ func _ready() -> void:
 		if section_type.weight == 0:
 			section_type.weight = section_type.initial_weight
 		%Sprite2D.modulate = section_type.color
+		_update_shader_weight()
+		_update_collision_shape()
 		%Label.text = "%s (%s)" % [section_type.name, section_type.description]
 		_update_label()
-	print("Weight: %s, Initial Weight: %s" % [section_type.weight, section_type.initial_weight])
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		%Sprite2D.modulate = section_type.color
 		_update_shader_weight()
