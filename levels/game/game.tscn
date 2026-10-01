@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c5kk27437ua1v" path="res://ui/debug_window/debug_window.tscn" id="1_sg147"]
 [ext_resource type="Resource" uid="uid://dhccmv2abf84" path="res://data/run/instances/debug.tres" id="2_71jyj"]
 [ext_resource type="PackedScene" uid="uid://e7p2v3eu2u4k" path="res://entities/wheel/wheel.tscn" id="3_6ojey"]
+[ext_resource type="PackedScene" uid="uid://2sgeg35s06uw" path="res://ui/spin_button/spin_button.tscn" id="5_0axs7"]
 
 [node name="Game" type="Node2D" unique_id=294026618]
 script = ExtResource("1_2oeyt")
@@ -19,6 +20,12 @@ max_speed_to_stop_duration = 2.5
 [node name="DebugWindow" parent="." unique_id=1789738310 instance=ExtResource("1_sg147")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2080779484]
+
+[node name="SpinButton" parent="HUD" unique_id=1741807432 instance=ExtResource("5_0axs7")]
+offset_left = 1050.0
+offset_top = 277.0
+offset_right = 1103.0
+offset_bottom = 308.0
 
 [node name="Pointer" type="Node2D" parent="." unique_id=2062994313]
 position = Vector2(29, 414)

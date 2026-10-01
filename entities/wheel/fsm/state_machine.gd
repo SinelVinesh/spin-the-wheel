@@ -8,6 +8,7 @@ func _ready():
 		_wheel = parent as Wheel
 	else:
 		push_error("Wheel State Machine must be a child of a Wheel node.")
+	_state_changed_signal = EventBus.wheel_state_changed
 	super._ready()
 
 func _per_state_additional_setup(state: State):
