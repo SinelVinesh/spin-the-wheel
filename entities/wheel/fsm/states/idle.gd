@@ -11,14 +11,15 @@ func _request_spin() -> void:
 		push_error("[Wheel][Idle State] Wheel reference is null.")
 		return
 	wheel.spin()
-	fsm.transition_to_state(FSMWheelConstants.Wheel.SPINNING)
 	print_debug("[Wheel][Idle State] Spin requested")
+	fsm.transition_to_state(FSMWheelConstants.Wheel.SPINNING)
 
 func enter():
-	EventBus.wheel_spin_requested.connect(_request_spin)
+	EventBus.wheel_spin_requested.connect(_request_spin, CONNECT_ONE_SHOT)
 
 func exit():
-	EventBus.wheel_spin_requested.disconnect(_request_spin)
+	if EventBus.wheel_spin_requested.is_connected(_request_spin):
+		EventBus.wheel_spin_requested.disconnect(_request_spin)
 
 func handle_input(event: InputEvent) -> void:
 	if event.is_action_pressed("spin"):

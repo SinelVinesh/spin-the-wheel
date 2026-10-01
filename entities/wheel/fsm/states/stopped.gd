@@ -12,7 +12,3 @@ func enter():
 		return
 	wheel.compute_result()
 	fsm.transition_to_state(FSMWheelConstants.Wheel.IDLE)
-
-
-func exit():
-	pass

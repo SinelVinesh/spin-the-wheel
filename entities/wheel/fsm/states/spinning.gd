@@ -9,7 +9,4 @@ func _on_spin_ended():
 	fsm.transition_to_state(FSMWheelConstants.Wheel.STOPPED)
 
 func enter():
-	EventBus.wheel_spin_ended.connect(_on_spin_ended)
-
-func exit():
-	EventBus.wheel_spin_ended.disconnect(_on_spin_ended)
+	EventBus.wheel_spin_ended.connect(_on_spin_ended, CONNECT_ONE_SHOT)

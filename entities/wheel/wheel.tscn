@@ -15,8 +15,9 @@ loop_wheel_render_in_editor = false
 [node name="Sections" type="Node2D" parent="." unique_id=1434046298]
 unique_name_in_owner = true
 
-[node name="StateMachine" type="Node" parent="." unique_id=339098724]
+[node name="StateMachine" type="Node" parent="." unique_id=339098724 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_tlmd3")
+initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=496451332]
 script = ExtResource("4_w2md6")
