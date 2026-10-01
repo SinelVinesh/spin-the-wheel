@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 EventBus="*uid://phukwaq6lpbr"
 RandomManager="*uid://cnjb2cd7moh0r"
+GameState="*uid://dk3e5i4lty5ls"
 
 [display]
 

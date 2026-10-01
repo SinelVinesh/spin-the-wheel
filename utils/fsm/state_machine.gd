@@ -4,7 +4,7 @@ class_name FiniteStateMachine extends Node
 @export var id: FSMConstants.ID
 var _current: State
 var states: Dictionary[int,State]
-
+var _state_changed_signal: Signal
 
 func _ready():
 	print_debug("[State Machine] State Machine initialized")
@@ -15,8 +15,6 @@ func _ready():
 	_current = initial_state
 	print_debug("[%s][%s State] Entering" % [FSMConstants.ID.find_key(id), str(_current.name)])
 	_current.enter()
-	EventBus.state_change_requested.connect(_on_transition_to_state)
-
 
 func _initialize_states():
 	states = {}
@@ -43,12 +41,16 @@ func _on_transition_to_state(state_machine_id: FSMConstants.ID, state_id: int):
 	if not states.has(state_id):
 		push_error("StateMachine: State %s not found in states dictionary." % str(state_id))
 		return
-		
+	
+	var old_state_id = _current.state_id
 	_current.exit()
 	print_debug("[%s][%s State] Exiting" % [FSMConstants.ID.find_key(id), str(_current.name)])
 	_current = states[state_id]
 	print_debug("[%s][%s State] Entering" % [FSMConstants.ID.find_key(id), str(_current.name)])
+	if _state_changed_signal != null:
+		_state_changed_signal.emit(old_state_id,state_id)
 	_current.enter()
+	
 	
 func get_current_state_key() -> int:
 	if _current == null:
