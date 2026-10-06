@@ -11,8 +11,12 @@ signal run_init_requested(context: RunContext)
 signal seed_updated()
 
 # Points signal
-signal points_earned(points: int)
+signal points_update_requested(delta: int)
+signal points_updated()
 
 # Wheel signals
 signal wheel_spin_requested()
 signal wheel_spin_ended()
+
+# Section signals
+signal section_picked(section_type: Section)
