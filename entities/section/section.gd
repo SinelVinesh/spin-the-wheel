@@ -1,5 +1,5 @@
 @tool
-extends Node2D
+class_name Section extends Area2D
 
 @export var section_type: SectionTypeInfo
 
@@ -60,3 +60,9 @@ func _update_label() -> void:
 		# Reset size
 		%Label.size = Vector2(%Sprite2D.texture.get_height()/4,0)
 	
+func set_collision(enabled: bool) -> void:
+	%Collision.disabled = not enabled
+
+func apply_effect() -> void:
+	if section_type != null:
+		section_type.trigger()

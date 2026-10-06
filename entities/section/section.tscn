@@ -14,6 +14,8 @@ shader_parameter/darken = 0.95
 shader_parameter/circle_radius = 0.5
 
 [node name="Section" type="Area2D" unique_id=246836308]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_3ni08")
 section_type = ExtResource("2_2k2q1")
 
@@ -58,6 +60,6 @@ offset_bottom = 10.0
 rotation = -1.0471976
 pivot_offset = Vector2(-66, 10)
 theme_override_font_sizes/font_size = 14
-text = "Section Label"
+text = "Common (10p)"
 horizontal_alignment = 1
 autowrap_mode = 2

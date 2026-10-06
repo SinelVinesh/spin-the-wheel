@@ -9,6 +9,7 @@ extends Node2D
 # how many seconds it takes to reach max speed
 @export var idle_to_max_speed_duration = 0.5
 @export var max_speed_to_stop_duration = 1.0
+@export var pointers: Array[Pointer] = []
 
 const EDITOR_REFRESH_INTERVAL := 1.0
 
@@ -112,4 +113,24 @@ func spin() -> void:
 	_spin = true
 
 func compute_result() -> void:
-	print_debug("[Wheel] Computing result")
+	for pointer in pointers:
+		if pointer is Pointer:
+			for area in pointer.get_overlapping_areas():
+				if area is Section:
+					_on_section_picked(area)
+					break
+	print_debug("[Wheel] result computed, collisions enabled for sections and pointers")
+	
+func _toggle_section_collisions(enabled: bool) -> void:
+	for child in %Sections.get_children():
+		if child is Section:
+			child.set_collision(enabled)
+
+func _on_section_picked(section: Section) -> void:
+	section.apply_effect()
+	print_debug("[Wheel] Section picked: %s" % section.section_type.name)
+
+func _disable_section_collisions() -> void:
+	for child in %Sections.get_children():
+		if child is Section:
+			child.set_collision(false)

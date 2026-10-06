@@ -1,12 +1,15 @@
 extends CanvasLayer
 
 const SEED = "SEED"
+const POINTS = "POINTS"
 
 var _label_mapping: Dictionary[String,Label] = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	EventBus.seed_updated.connect(_update_seed)
+	EventBus.points_updated.connect(_update_points)
+	_initialize()
 
 func create_debug_line(title: String, data: Variant) -> void:
 	var container = HBoxContainer.new()
@@ -22,9 +25,16 @@ func create_debug_line(title: String, data: Variant) -> void:
 
 func _initialize() -> void:
 	create_debug_line(SEED, RandomManager.game_seed)
+	create_debug_line(POINTS, 0)
 
 func _update_seed() -> void:
 	if SEED in _label_mapping:
 		_label_mapping[SEED].text = RandomManager.game_seed
 	else:
 		create_debug_line(SEED, RandomManager.game_seed)
+
+func _update_points() -> void:
+	if POINTS in _label_mapping:
+		_label_mapping[POINTS].text = str(GameState.points)
+	else:
+		create_debug_line(POINTS, GameState.points)

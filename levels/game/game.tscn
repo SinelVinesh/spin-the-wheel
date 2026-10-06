@@ -5,17 +5,19 @@
 [ext_resource type="Resource" uid="uid://dhccmv2abf84" path="res://data/run/instances/debug.tres" id="2_71jyj"]
 [ext_resource type="PackedScene" uid="uid://e7p2v3eu2u4k" path="res://entities/wheel/wheel.tscn" id="3_6ojey"]
 [ext_resource type="PackedScene" uid="uid://2sgeg35s06uw" path="res://ui/spin_button/spin_button.tscn" id="5_0axs7"]
+[ext_resource type="PackedScene" uid="uid://dl2y8u5j6l5d8" path="res://entities/pointer/pointer.tscn" id="6_mkwu1"]
 
 [node name="Game" type="Node2D" unique_id=294026618]
 script = ExtResource("1_2oeyt")
 debugMode = true
 debugContext = ExtResource("2_71jyj")
 
-[node name="Wheel" parent="." unique_id=1722995780 instance=ExtResource("3_6ojey")]
+[node name="Wheel" parent="." unique_id=1722995780 node_paths=PackedStringArray("pointers") instance=ExtResource("3_6ojey")]
 position = Vector2(680, 396)
 rotation = 7.500001
 max_angular_speed = 20.0
 max_speed_to_stop_duration = 2.5
+pointers = [NodePath("../Pointer")]
 
 [node name="DebugWindow" parent="." unique_id=1789738310 instance=ExtResource("1_sg147")]
 
@@ -27,5 +29,5 @@ offset_top = 277.0
 offset_right = 1103.0
 offset_bottom = 308.0
 
-[node name="Pointer" type="Node2D" parent="." unique_id=2062994313]
-position = Vector2(29, 414)
+[node name="Pointer" parent="." unique_id=1991256958 instance=ExtResource("6_mkwu1")]
+position = Vector2(686, 208)

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dl2y8u5j6l5d8"]
+
+[ext_resource type="Script" uid="uid://dq4rpcp1wtbfw" path="res://entities/pointer/pointer.gd" id="1_drhju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bk8q"]
+size = Vector2(2, 2)
+
+[node name="Pointer" type="Area2D" unique_id=1991256958]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_drhju")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1369299258]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_2bk8q")
+debug_color = Color(0.90313137, 0.23484847, 0.5108658, 0.41960785)
