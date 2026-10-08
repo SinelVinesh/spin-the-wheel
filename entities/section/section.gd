@@ -1,7 +1,12 @@
 @tool
 class_name Section extends Area2D
 
+const HIGHLIGHT_MAX_SCALE: Vector2 = Vector2(1.1,1.1)
+const HIGHLIGHT_SPEED: float = 0.8
+const HIGHLIGHT_COLOR_MULTIPLIER: float = 1.2
+
 @export var section_type: SectionTypeInfo
+@export_tool_button("Highlight", "") var hightlight_section = _highlight
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,5 +69,18 @@ func set_collision(enabled: bool) -> void:
 	%Collision.disabled = not enabled
 
 func apply_effect() -> void:
+	_highlight()
 	if section_type != null:
 		section_type.trigger()
+
+func _highlight() -> void:
+	print_debug("Highlighted")
+	var tween = get_tree().create_tween()
+	var base_scale = scale
+	var base_modulate = modulate
+	tween.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self,"scale",HIGHLIGHT_MAX_SCALE,HIGHLIGHT_SPEED/2)
+	tween.parallel().tween_property(self,"modulate",self.modulate*HIGHLIGHT_COLOR_MULTIPLIER,HIGHLIGHT_SPEED/2)
+	tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	tween.tween_property(self,"scale",base_scale,HIGHLIGHT_SPEED/2)
+	tween.parallel().tween_property(self,"modulate",base_modulate,HIGHLIGHT_SPEED/2)
