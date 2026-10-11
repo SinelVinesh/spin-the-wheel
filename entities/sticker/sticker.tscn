@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c4rlnwvnlb5l0"]
+
+[ext_resource type="Script" uid="uid://cessdd5ewdbdw" path="res://entities/sticker/sticker.gd" id="1_a8v4c"]
+
+[node name="Sticker" type="Node2D" unique_id=762899484]
+script = ExtResource("1_a8v4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=443945580]
+unique_name_in_owner = true
