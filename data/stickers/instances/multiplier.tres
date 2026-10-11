@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="StickerInfo" format=3 uid="uid://cqtqsdwbwpett"]
 
 [ext_resource type="Script" uid="uid://bf803hpopt62d" path="res://data/stickers/sticker.gd" id="1_ddpsm"]
+[ext_resource type="Texture2D" uid="uid://cwihyi2fjyk77" path="res://assets/mult.aseprite" id="1_usuh8"]
 
 [resource]
 script = ExtResource("1_ddpsm")
+name = "x2"
+image = ExtResource("1_usuh8")
+description = "Multiply the score of the section by two"
 metadata/_custom_type_script = "uid://bf803hpopt62d"

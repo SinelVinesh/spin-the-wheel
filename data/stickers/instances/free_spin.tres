@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="StickerInfo" format=3 uid="uid://dl7bqqbw48rb0"]
 
 [ext_resource type="Script" uid="uid://bf803hpopt62d" path="res://data/stickers/sticker.gd" id="1_p3d5l"]
+[ext_resource type="Texture2D" uid="uid://b7aniviuesm3l" path="res://assets/free_spin.aseprite" id="1_uxaqi"]
 
 [resource]
 script = ExtResource("1_p3d5l")
+name = "Free Spin !"
+image = ExtResource("1_uxaqi")
+description = "Spin the wheel one more time for free"
 metadata/_custom_type_script = "uid://bf803hpopt62d"
