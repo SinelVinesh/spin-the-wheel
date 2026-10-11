@@ -20,3 +20,5 @@ mono_crash.*.json
 .claude
 _bmad/*
 _bmad-output/*
+
+.DS_Store

@@ -3,7 +3,7 @@ class_name Wheel
 extends Node2D
 
 @export var layout: WheelLayoutInfo
-@export var loop_wheel_render_in_editor: bool = true
+@export var render_in_editor: bool = true
 # max speed of the wheel (radian / seconde)
 @export var max_angular_speed = 2.0
 # how many seconds it takes to reach max speed
@@ -27,11 +27,11 @@ var _max_angular_speed_duration: float = 0.0
 func _ready() -> void:
 	_init_weights()
 	_render_wheel()
-	set_process(Engine.is_editor_hint() && loop_wheel_render_in_editor)
+	set_process(Engine.is_editor_hint() && render_in_editor)
 
 
 func _process(delta: float) -> void:
-	if not loop_wheel_render_in_editor:
+	if not render_in_editor:
 		return
 	_editor_refresh_elapsed += delta
 	if _editor_refresh_elapsed < EDITOR_REFRESH_INTERVAL:
