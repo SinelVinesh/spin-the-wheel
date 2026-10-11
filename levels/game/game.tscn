@@ -19,7 +19,6 @@ debugContext = ExtResource("2_71jyj")
 [node name="Wheel" parent="." unique_id=1722995780 node_paths=PackedStringArray("pointers") instance=ExtResource("3_6ojey")]
 position = Vector2(680, 396)
 rotation = 7.500001
-render_in_editor = null
 max_angular_speed = 20.0
 max_speed_to_stop_duration = 2.5
 pointers = [NodePath("../Pointer")]
@@ -44,7 +43,7 @@ position = Vector2(965, 253)
 sticker_info = ExtResource("8_vay4l")
 
 [node name="Sticker3" parent="Stickers" unique_id=976921624 instance=ExtResource("7_ge5v2")]
-position = Vector2(980, 150)
+position = Vector2(961, 238)
 sticker_info = ExtResource("9_wsbxy")
 
 [node name="Sticker" parent="Stickers" unique_id=334515122 instance=ExtResource("7_ge5v2")]

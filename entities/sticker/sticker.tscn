@@ -1,9 +1,20 @@
 [gd_scene format=3 uid="uid://c4rlnwvnlb5l0"]
 
 [ext_resource type="Script" uid="uid://cessdd5ewdbdw" path="res://entities/sticker/sticker.gd" id="1_a8v4c"]
+[ext_resource type="PackedScene" uid="uid://b0a44vdb7suhe" path="res://components/drag_and_drop/draggable/draggable.tscn" id="2_it2yy"]
 
-[node name="Sticker" type="Node2D" unique_id=762899484]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2bk8q"]
+radius = 32.38827
+
+[node name="Sticker" type="Area2D" unique_id=292007343]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_a8v4c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=443945580]
 unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1544029043]
+shape = SubResource("CircleShape2D_2bk8q")
+
+[node name="DragAndDropComponent" parent="." unique_id=1450538198 instance=ExtResource("2_it2yy")]

@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://b20ndxta14x1r" path="res://data/section_types/instances/common.tres" id="2_2k2q1"]
 [ext_resource type="Texture2D" uid="uid://duno3ffe230dv" path="res://assets/section.aseprite" id="2_o48sy"]
 [ext_resource type="Shader" uid="uid://dqp3yum3h60m7" path="res://entities/section/section.gdshader" id="3_2k2q1"]
+[ext_resource type="PackedScene" uid="uid://cm26q1ykr8imm" path="res://components/drag_and_drop/drop_zone/drop_zone.tscn" id="5_pmo0o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o48sy"]
 resource_local_to_scene = true
@@ -15,7 +16,7 @@ shader_parameter/circle_radius = 0.5
 
 [node name="Section" type="Area2D" unique_id=246836308]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_3ni08")
 section_type = ExtResource("2_2k2q1")
 
@@ -63,3 +64,9 @@ theme_override_font_sizes/font_size = 14
 text = "Common (10p)"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="Stickers" type="Node2D" parent="." unique_id=175677286]
+
+[node name="DropZone" parent="." unique_id=338168352 node_paths=PackedStringArray("collision_object", "container") instance=ExtResource("5_pmo0o")]
+collision_object = NodePath("..")
+container = NodePath("../Stickers")
