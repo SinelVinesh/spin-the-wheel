@@ -16,3 +16,6 @@ func is_wheel_idle() -> bool:
 func _on_points_update_requested(delta: int) -> void:
 	points += delta
 	EventBus.points_updated.emit()
+
+func is_drag_and_drop_enabled() -> bool:
+	return current_wheel_state == FSMWheelConstants.Wheel.IDLE
