@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cessdd5ewdbdw" path="res://entities/sticker/sticker.gd" id="1_a8v4c"]
 [ext_resource type="PackedScene" uid="uid://b0a44vdb7suhe" path="res://components/drag_and_drop/draggable/draggable.tscn" id="2_it2yy"]
 
+[ext_resource type="PackedScene" path="res://components/tooltip/sticker_tooltip/sticker_tooltip.tscn" id="3_stkt"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_2bk8q"]
 radius = 32.38827
 
@@ -18,3 +20,5 @@ unique_name_in_owner = true
 shape = SubResource("CircleShape2D_2bk8q")
 
 [node name="DragAndDropComponent" parent="." unique_id=1450538198 instance=ExtResource("2_it2yy")]
+
+[node name="StickerTooltip" parent="." instance=ExtResource("3_stkt")]

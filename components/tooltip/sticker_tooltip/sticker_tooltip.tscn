@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://components/tooltip/sticker_tooltip/sticker_tooltip.gd" id="1_stkt"]
+
+[node name="StickerTooltip" type="Node"]
+script = ExtResource("1_stkt")
+
+[node name="ShowTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

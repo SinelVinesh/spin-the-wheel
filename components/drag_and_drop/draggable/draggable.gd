@@ -1,5 +1,7 @@
 class_name Draggable extends Node
 
+signal drag_started
+
 const HOVER_SCALE := Vector2(1.1, 1.1)
 static var _hovered_draggables: Array[Draggable] = []
 
@@ -67,7 +69,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not _can_start_drag() or not event.is_action_pressed("click"):
 		return
 	_is_dragging = true
+	drag_started.emit()
 	get_viewport().set_input_as_handled()
+
+func is_dragging() -> bool:
+	return _is_dragging
 
 func _can_start_drag() -> bool:
 	return _draggable and _is_mouse_over and not _is_dragging and GameState.is_drag_and_drop_enabled()
