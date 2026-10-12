@@ -5,6 +5,7 @@ const POINTS = "POINTS"
 const FREE_SPINS = "FREE_SPINS"
 const SPIN_POINTS = "SPIN_POINTS"
 const SPIN_MULTIPLIER = "SPIN_MULTIPLIER"
+const REMAINING_SPINS = "REMAINING_SPINS"
 
 var _label_mapping: Dictionary[String,Label] = {}
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 	EventBus.spin_points_updated.connect(_update_spin_points)
 	EventBus.spin_multiplier_updated.connect(_update_spin_multiplier)
 	EventBus.free_spin_counter_updated.connect(_update_free_spins)
+	EventBus.remaining_spins_updated.connect(_update_remaining_spins)
 	_initialize()
 
 func create_debug_line(title: String, data: Variant) -> void:
@@ -35,33 +37,28 @@ func _initialize() -> void:
 	create_debug_line(SPIN_POINTS, 0)
 	create_debug_line(SPIN_MULTIPLIER, 1)
 	create_debug_line(FREE_SPINS, 0)
+	create_debug_line(REMAINING_SPINS, GameState.remaining_spins)
 
 func _update_seed() -> void:
-	if SEED in _label_mapping:
-		_label_mapping[SEED].text = RandomManager.game_seed
-	else:
-		create_debug_line(SEED, RandomManager.game_seed)
+	_update_debug_line(SEED, RandomManager.game_seed)
 
 func _update_points() -> void:
-	if POINTS in _label_mapping:
-		_label_mapping[POINTS].text = str(GameState.points)
-	else:
-		create_debug_line(POINTS, GameState.points)
+	_update_debug_line(POINTS, GameState.points)
 
 func _update_spin_points() -> void:
-	if SPIN_POINTS in _label_mapping:
-		_label_mapping[SPIN_POINTS].text = str(GameState.spin_points)
-	else:
-		create_debug_line(SPIN_POINTS, GameState.spin_points)
+	_update_debug_line(SPIN_POINTS, GameState.spin_points)
 
 func _update_spin_multiplier() -> void:
-	if SPIN_MULTIPLIER in _label_mapping:
-		_label_mapping[SPIN_MULTIPLIER].text = str(GameState.spin_multiplier)
-	else:
-		create_debug_line(SPIN_MULTIPLIER, GameState.spin_multiplier)
+	_update_debug_line(SPIN_MULTIPLIER, GameState.spin_multiplier)
 
 func _update_free_spins() -> void:
-	if FREE_SPINS in _label_mapping:
-		_label_mapping[FREE_SPINS].text = str(GameState.free_spins)
+	_update_debug_line(FREE_SPINS, GameState.free_spins)
+
+func _update_remaining_spins() -> void:
+	_update_debug_line(REMAINING_SPINS, GameState.remaining_spins)
+
+func _update_debug_line(title: String, data: Variant) -> void:
+	if title in _label_mapping:
+		_label_mapping[title].text = str(data)
 	else:
-		create_debug_line(FREE_SPINS, GameState.free_spins)
+		create_debug_line(title, data)

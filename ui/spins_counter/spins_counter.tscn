@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://ui/spins_counter/spins_counter.gd" id="1_spins_counter"]
+
+[node name="SpinsCounter" type="Label"]
+text = "Spins: 0"
+script = ExtResource("1_spins_counter")

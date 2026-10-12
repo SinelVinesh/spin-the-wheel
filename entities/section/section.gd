@@ -74,7 +74,7 @@ func set_collision(enabled: bool) -> void:
 	%Collision.disabled = not enabled
 
 func apply_effect() -> void:
-	_highlight()
+	await _highlight()
 	if section_type != null:
 		section_type.trigger()
 	var stickers: Array[Sticker]

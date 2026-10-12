@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://dl7bqqbw48rb0" path="res://data/stickers/instances/free_spin.tres" id="9_wsbxy"]
 [ext_resource type="Resource" uid="uid://xcfweqy3i4mv" path="res://data/stickers/instances/bonus.tres" id="10_81lwq"]
 [ext_resource type="PackedScene" path="res://ui/tooltip/tooltip.tscn" id="11_tooltip"]
+[ext_resource type="PackedScene" path="res://ui/spins_counter/spins_counter.tscn" id="12_spins_counter"]
 
 [node name="Game" type="Node2D" unique_id=294026618]
 script = ExtResource("1_2oeyt")
@@ -34,6 +35,12 @@ offset_left = 1050.0
 offset_top = 277.0
 offset_right = 1103.0
 offset_bottom = 308.0
+
+[node name="SpinsCounter" parent="HUD" instance=ExtResource("12_spins_counter")]
+offset_left = 1050.0
+offset_top = 240.0
+offset_right = 1130.0
+offset_bottom = 266.0
 
 [node name="Tooltip" parent="HUD" unique_id=1369510018 instance=ExtResource("11_tooltip")]
 visible = false
