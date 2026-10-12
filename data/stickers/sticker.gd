@@ -7,5 +7,6 @@ extends Resource
 @export var effect: StickerEffect
 
 func trigger() -> void:
+	print_debug("Sticker triggered: %s" % name)
 	if effect != null:
 		effect.apply()
