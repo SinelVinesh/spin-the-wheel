@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://cqtqsdwbwpett" path="res://data/stickers/instances/multiplier.tres" id="8_vay4l"]
 [ext_resource type="Resource" uid="uid://dl7bqqbw48rb0" path="res://data/stickers/instances/free_spin.tres" id="9_wsbxy"]
 [ext_resource type="Resource" uid="uid://xcfweqy3i4mv" path="res://data/stickers/instances/bonus.tres" id="10_81lwq"]
+[ext_resource type="PackedScene" path="res://ui/tooltip/tooltip.tscn" id="11_tooltip"]
 
 [node name="Game" type="Node2D" unique_id=294026618]
 script = ExtResource("1_2oeyt")
@@ -19,6 +20,7 @@ debugContext = ExtResource("2_71jyj")
 [node name="Wheel" parent="." unique_id=1722995780 node_paths=PackedStringArray("pointers") instance=ExtResource("3_6ojey")]
 position = Vector2(680, 396)
 rotation = 7.500001
+render_in_editor = false
 max_angular_speed = 20.0
 max_speed_to_stop_duration = 2.5
 pointers = [NodePath("../Pointer")]
@@ -33,6 +35,9 @@ offset_top = 277.0
 offset_right = 1103.0
 offset_bottom = 308.0
 
+[node name="Tooltip" parent="HUD" unique_id=1369510018 instance=ExtResource("11_tooltip")]
+visible = false
+
 [node name="Pointer" parent="." unique_id=1991256958 instance=ExtResource("6_mkwu1")]
 position = Vector2(686, 208)
 
@@ -43,9 +48,9 @@ position = Vector2(965, 253)
 sticker_info = ExtResource("8_vay4l")
 
 [node name="Sticker3" parent="Stickers" unique_id=976921624 instance=ExtResource("7_ge5v2")]
-position = Vector2(961, 238)
+position = Vector2(961, 170)
 sticker_info = ExtResource("9_wsbxy")
 
 [node name="Sticker" parent="Stickers" unique_id=334515122 instance=ExtResource("7_ge5v2")]
-position = Vector2(867, 105)
+position = Vector2(1102, 106)
 sticker_info = ExtResource("10_81lwq")

@@ -13,6 +13,9 @@ func _on_wheel_state_changed(_old, new_state) -> void:
 func is_wheel_idle() -> bool:
 	return current_wheel_state == FSMWheelConstants.Wheel.IDLE
 
+func is_wheel_spinning() -> bool:
+	return current_wheel_state == FSMWheelConstants.Wheel.SPINNING
+
 func _on_points_update_requested(delta: int) -> void:
 	points += delta
 	EventBus.points_updated.emit()
