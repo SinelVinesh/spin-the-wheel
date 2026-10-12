@@ -6,17 +6,31 @@ const DEFAULT_SPIN_MULTIPLIER: int = 1
 var current_wheel_state: FSMWheelConstants.Wheel = FSMWheelConstants.Wheel.IDLE
 var points: int = 0
 var free_spins: int = 0
+var remaining_spins: int = 0
 
 var spin_points: int = DEFAULT_SPIN_POINTS
 var spin_multiplier: int = DEFAULT_SPIN_MULTIPLIER
 
 
 func _ready() -> void:
+	EventBus.run_init_requested.connect(_on_run_init_requested)
 	EventBus.wheel_state_changed.connect(_on_wheel_state_changed)
 	EventBus.spin_result_computation_requested.connect(_on_spin_result_computation_requested)
 	EventBus.spin_points_update_requested.connect(_on_spin_points_update_requested)
 	EventBus.spin_multiplier_update_requested.connect(_on_spin_multiplier_update_requested)
 	EventBus.free_spin_counter_update_requested.connect(_on_spin_free_spin_update_requested)
+
+func _on_run_init_requested(context: RunContext) -> void:
+	var run_context := context if context != null else RunContext.new()
+	remaining_spins = run_context.spins_per_round
+	EventBus.remaining_spins_updated.emit()
+
+func has_remaining_spins() -> bool:
+	return remaining_spins > 0
+
+func consume_spin() -> void:
+	remaining_spins -= 1
+	EventBus.remaining_spins_updated.emit()
 
 func _on_wheel_state_changed(_old, new_state) -> void:
 	current_wheel_state = new_state

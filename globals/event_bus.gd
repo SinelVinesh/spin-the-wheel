@@ -14,6 +14,7 @@ signal seed_updated()
 signal points_updated()
 signal free_spin_counter_update_requested(delta: int)
 signal free_spin_counter_updated()
+signal remaining_spins_updated()
 
 # Wheel signals
 signal wheel_spin_requested()
