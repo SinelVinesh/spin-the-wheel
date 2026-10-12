@@ -117,7 +117,7 @@ func compute_result() -> void:
 		if pointer is Pointer:
 			for area in pointer.get_overlapping_areas():
 				if area is Section:
-					_on_section_picked(area)
+					await _on_section_picked(area)
 					break
 	print_debug("[Wheel] result computed, collisions enabled for sections and pointers")
 	
@@ -127,7 +127,7 @@ func _toggle_section_collisions(enabled: bool) -> void:
 			child.set_collision(enabled)
 
 func _on_section_picked(section: Section) -> void:
-	section.apply_effect()
+	await section.apply_effect()
 	print_debug("[Wheel] Section picked: %s" % section.section_type.name)
 
 func _disable_section_collisions() -> void:

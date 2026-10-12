@@ -8,6 +8,9 @@ const HIGHLIGHT_COLOR_MULTIPLIER: float = 1.2
 @export var section_type: SectionTypeInfo
 @export_tool_button("Highlight", "") var hightlight_section = _highlight
 
+var _base_scale: Vector2
+var _base_modulate: Color
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if section_type != null:
@@ -18,6 +21,8 @@ func _ready() -> void:
 		_update_collision_shape()
 		%Label.text = "%s (%s)" % [section_type.name, section_type.description]
 		_update_label()
+		_base_scale = scale
+		_base_modulate = modulate
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -69,7 +74,7 @@ func set_collision(enabled: bool) -> void:
 	%Collision.disabled = not enabled
 
 func apply_effect() -> void:
-	_highlight()
+	var hightlight_tween = _highlight()
 	if section_type != null:
 		section_type.trigger()
 	var stickers: Array[Sticker]
@@ -77,18 +82,22 @@ func apply_effect() -> void:
 	if stickers.size() > 0:
 		var sorted_stickers = _sort_stickers_by_distance(stickers)
 		for sticker in sorted_stickers:
-			sticker.sticker_info.trigger()
+			await sticker.trigger()
+	await _unhighlight(hightlight_tween)
 
-func _highlight() -> void:
+func _highlight() -> Tween:
 	var tween = get_tree().create_tween()
-	var base_scale = scale
-	var base_modulate = modulate
 	tween.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self,"scale",HIGHLIGHT_MAX_SCALE,HIGHLIGHT_SPEED/2)
 	tween.parallel().tween_property(self,"modulate",self.modulate*HIGHLIGHT_COLOR_MULTIPLIER,HIGHLIGHT_SPEED/2)
+	return tween
+	
+
+func _unhighlight(tween: Tween) -> void:
 	tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
-	tween.tween_property(self,"scale",base_scale,HIGHLIGHT_SPEED/2)
-	tween.parallel().tween_property(self,"modulate",base_modulate,HIGHLIGHT_SPEED/2)
+	tween.tween_property(self,"scale",_base_scale,HIGHLIGHT_SPEED/2)
+	tween.parallel().tween_property(self,"modulate",_base_modulate,HIGHLIGHT_SPEED/2)
+	await tween.finished
 
 func _sort_stickers_by_distance(stickers: Array[Sticker]) -> Array[Sticker]:
 	var sorted_stickers = stickers.duplicate()
