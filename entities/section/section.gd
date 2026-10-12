@@ -74,7 +74,7 @@ func set_collision(enabled: bool) -> void:
 	%Collision.disabled = not enabled
 
 func apply_effect() -> void:
-	var hightlight_tween = _highlight()
+	_highlight()
 	if section_type != null:
 		section_type.trigger()
 	var stickers: Array[Sticker]
@@ -83,17 +83,19 @@ func apply_effect() -> void:
 		var sorted_stickers = _sort_stickers_by_distance(stickers)
 		for sticker in sorted_stickers:
 			await sticker.trigger()
-	await _unhighlight(hightlight_tween)
+	EventBus.spin_result_computation_requested.emit()
+	await _unhighlight()
 
-func _highlight() -> Tween:
+func _highlight() -> void:
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self,"scale",HIGHLIGHT_MAX_SCALE,HIGHLIGHT_SPEED/2)
 	tween.parallel().tween_property(self,"modulate",self.modulate*HIGHLIGHT_COLOR_MULTIPLIER,HIGHLIGHT_SPEED/2)
-	return tween
+	await tween.finished
 	
 
-func _unhighlight(tween: Tween) -> void:
+func _unhighlight() -> void:
+	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
 	tween.tween_property(self,"scale",_base_scale,HIGHLIGHT_SPEED/2)
 	tween.parallel().tween_property(self,"modulate",_base_modulate,HIGHLIGHT_SPEED/2)
