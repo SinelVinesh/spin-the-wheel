@@ -9,6 +9,9 @@ const EDITOR_REFRESH_INTERVAL := 1.0
 var _editor_refresh_elapsed := 0.0
 
 func _ready() -> void:
+	if sticker_info == null:
+		print_debug("Sticker info is not assigned.")
+		return
 	_render_sticker()
 
 func _process(delta: float) -> void:
@@ -24,3 +27,11 @@ func _render_sticker() -> void:
 	if sticker_info == null:
 		return
 	%Sprite2D.texture = sticker_info.image
+
+func trigger() -> void:
+	_highlight()
+	await %AnimationPlayer.animation_finished
+	sticker_info.trigger()
+
+func _highlight() -> void:
+	%AnimationPlayer.play("highlight")
