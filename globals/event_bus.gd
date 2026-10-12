@@ -18,5 +18,9 @@ signal points_updated()
 signal wheel_spin_requested()
 signal wheel_spin_ended()
 
+# Tooltip signals
+signal tooltip_show_requested(title: String, body: String, anchor: Vector2)
+signal tooltip_hide_requested()
+
 # Section signals
 signal section_picked(section_type: Section)
