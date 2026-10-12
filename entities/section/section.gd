@@ -94,6 +94,8 @@ func _highlight() -> Tween:
 	
 
 func _unhighlight(tween: Tween) -> void:
+	if not tween.is_valid():
+		tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
 	tween.tween_property(self,"scale",_base_scale,HIGHLIGHT_SPEED/2)
 	tween.parallel().tween_property(self,"modulate",_base_modulate,HIGHLIGHT_SPEED/2)
