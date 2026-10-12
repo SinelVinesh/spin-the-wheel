@@ -16,6 +16,9 @@ func _request_spin() -> void:
 
 func enter():
 	EventBus.wheel_spin_requested.connect(_request_spin, CONNECT_ONE_SHOT)
+	if GameState.apply_free_spin():
+		print_debug("[Wheel][Idle State] Free spin applied")
+		_request_spin()
 
 func exit():
 	if EventBus.wheel_spin_requested.is_connected(_request_spin):

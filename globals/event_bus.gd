@@ -11,8 +11,9 @@ signal run_init_requested(context: RunContext)
 signal seed_updated()
 
 # Points signal
-signal points_update_requested(delta: int)
 signal points_updated()
+signal free_spin_counter_update_requested(delta: int)
+signal free_spin_counter_updated()
 
 # Wheel signals
 signal wheel_spin_requested()
@@ -24,3 +25,11 @@ signal tooltip_hide_requested()
 
 # Section signals
 signal section_picked(section_type: Section)
+
+# Spin signals
+signal spin_points_update_requested(delta: int)
+signal spin_multiplier_update_requested(multiplier: int)
+signal spin_points_updated()
+signal spin_multiplier_updated()
+signal spin_result_computation_requested()
+signal free_spin_requested()
