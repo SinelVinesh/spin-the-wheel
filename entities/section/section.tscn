@@ -66,6 +66,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Stickers" type="Node2D" parent="." unique_id=175677286]
+unique_name_in_owner = true
 
 [node name="DropZone" parent="." unique_id=338168352 node_paths=PackedStringArray("collision_object", "container") instance=ExtResource("5_pmo0o")]
 collision_object = NodePath("..")

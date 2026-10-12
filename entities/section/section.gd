@@ -72,9 +72,14 @@ func apply_effect() -> void:
 	_highlight()
 	if section_type != null:
 		section_type.trigger()
+	var stickers: Array[Sticker]
+	stickers.assign(%Stickers.get_children())
+	if stickers.size() > 0:
+		var sorted_stickers = _sort_stickers_by_distance(stickers)
+		for sticker in sorted_stickers:
+			sticker.sticker_info.trigger()
 
 func _highlight() -> void:
-	print_debug("Highlighted")
 	var tween = get_tree().create_tween()
 	var base_scale = scale
 	var base_modulate = modulate
@@ -84,3 +89,13 @@ func _highlight() -> void:
 	tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
 	tween.tween_property(self,"scale",base_scale,HIGHLIGHT_SPEED/2)
 	tween.parallel().tween_property(self,"modulate",base_modulate,HIGHLIGHT_SPEED/2)
+
+func _sort_stickers_by_distance(stickers: Array[Sticker]) -> Array[Sticker]:
+	var sorted_stickers = stickers.duplicate()
+	sorted_stickers.sort_custom(
+		func(a: Sticker, b: Sticker) -> bool:
+			var dist_a = a.global_position.distance_to(global_position)
+			var dist_b = b.global_position.distance_to(global_position)
+			return dist_a < dist_b
+	)
+	return sorted_stickers

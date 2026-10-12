@@ -52,5 +52,5 @@ position = Vector2(961, 170)
 sticker_info = ExtResource("9_wsbxy")
 
 [node name="Sticker" parent="Stickers" unique_id=334515122 instance=ExtResource("7_ge5v2")]
-position = Vector2(1102, 106)
+position = Vector2(959, 92)
 sticker_info = ExtResource("10_81lwq")

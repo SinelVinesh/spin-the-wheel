@@ -3,6 +3,9 @@ extends Node
 var current_wheel_state: FSMWheelConstants.Wheel = FSMWheelConstants.Wheel.IDLE
 var points: int = 0
 
+var spin_points: int = 0
+var spin_multiplier: int = 1
+
 func _ready() -> void:
 	EventBus.wheel_state_changed.connect(_on_wheel_state_changed)
 	EventBus.points_update_requested.connect(_on_points_update_requested)
