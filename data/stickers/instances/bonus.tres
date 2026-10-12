@@ -1,11 +1,18 @@
 [gd_resource type="Resource" script_class="StickerInfo" format=3 uid="uid://xcfweqy3i4mv"]
 
+[ext_resource type="Script" uid="uid://bvtk5v8b4caqr" path="res://data/effects/implementations/update_points.gd" id="1_5cwon"]
 [ext_resource type="Texture2D" uid="uid://qi5q221so3bp" path="res://assets/bonus.aseprite" id="1_nmkd3"]
 [ext_resource type="Script" uid="uid://bf803hpopt62d" path="res://data/stickers/sticker.gd" id="1_wv071"]
+
+[sub_resource type="Resource" id="Resource_drhju"]
+script = ExtResource("1_5cwon")
+points = 100
+metadata/_custom_type_script = "uid://bvtk5v8b4caqr"
 
 [resource]
 script = ExtResource("1_wv071")
 name = "Bonus"
 image = ExtResource("1_nmkd3")
 description = "Add 100 points to the section"
+effect = SubResource("Resource_drhju")
 metadata/_custom_type_script = "uid://bf803hpopt62d"

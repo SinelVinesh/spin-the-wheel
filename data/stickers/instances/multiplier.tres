@@ -1,11 +1,18 @@
 [gd_resource type="Resource" script_class="StickerInfo" format=3 uid="uid://cqtqsdwbwpett"]
 
+[ext_resource type="Script" uid="uid://bvhpgc7u7bqfd" path="res://data/effects/implementations/update_multiplier.gd" id="1_5t0fh"]
 [ext_resource type="Script" uid="uid://bf803hpopt62d" path="res://data/stickers/sticker.gd" id="1_ddpsm"]
 [ext_resource type="Texture2D" uid="uid://cwihyi2fjyk77" path="res://assets/mult.aseprite" id="1_usuh8"]
+
+[sub_resource type="Resource" id="Resource_drhju"]
+script = ExtResource("1_5t0fh")
+multiplier = 2
+metadata/_custom_type_script = "uid://bvhpgc7u7bqfd"
 
 [resource]
 script = ExtResource("1_ddpsm")
 name = "x2"
 image = ExtResource("1_usuh8")
 description = "Multiply the score of the section by two"
+effect = SubResource("Resource_drhju")
 metadata/_custom_type_script = "uid://bf803hpopt62d"
