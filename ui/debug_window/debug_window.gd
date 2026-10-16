@@ -6,6 +6,7 @@ const FREE_SPINS = "FREE_SPINS"
 const SPIN_POINTS = "SPIN_POINTS"
 const SPIN_MULTIPLIER = "SPIN_MULTIPLIER"
 const REMAINING_SPINS = "REMAINING_SPINS"
+const QUOTA = "QUOTA"
 
 var _label_mapping: Dictionary[String,Label] = {}
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 	EventBus.spin_multiplier_updated.connect(_update_spin_multiplier)
 	EventBus.free_spin_counter_updated.connect(_update_free_spins)
 	EventBus.remaining_spins_updated.connect(_update_remaining_spins)
+	EventBus.quota_updated.connect(_update_quota)
 	_initialize()
 
 func create_debug_line(title: String, data: Variant) -> void:
@@ -38,6 +40,7 @@ func _initialize() -> void:
 	create_debug_line(SPIN_MULTIPLIER, 1)
 	create_debug_line(FREE_SPINS, 0)
 	create_debug_line(REMAINING_SPINS, GameState.remaining_spins)
+	create_debug_line(QUOTA, GameState.quota)
 
 func _update_seed() -> void:
 	_update_debug_line(SEED, RandomManager.game_seed)
@@ -56,6 +59,9 @@ func _update_free_spins() -> void:
 
 func _update_remaining_spins() -> void:
 	_update_debug_line(REMAINING_SPINS, GameState.remaining_spins)
+
+func _update_quota() -> void:
+	_update_debug_line(QUOTA, GameState.quota)
 
 func _update_debug_line(title: String, data: Variant) -> void:
 	if title in _label_mapping:

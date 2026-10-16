@@ -7,6 +7,7 @@ var current_wheel_state: FSMWheelConstants.Wheel = FSMWheelConstants.Wheel.IDLE
 var points: int = 0
 var free_spins: int = 0
 var remaining_spins: int = 0
+var quota: int
 
 var spin_points: int = DEFAULT_SPIN_POINTS
 var spin_multiplier: int = DEFAULT_SPIN_MULTIPLIER
@@ -24,6 +25,8 @@ func _on_run_init_requested(context: RunContext) -> void:
 	var run_context := context if context != null else RunContext.new()
 	remaining_spins = run_context.spins_per_round
 	EventBus.remaining_spins_updated.emit()
+	quota = run_context.quota
+	EventBus.quota_updated.emit()
 
 func has_remaining_spins() -> bool:
 	return remaining_spins > 0
