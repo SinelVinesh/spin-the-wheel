@@ -15,4 +15,5 @@ name = "Free Spin !"
 image = ExtResource("1_uxaqi")
 description = "Spin the wheel one more time for free"
 effect = SubResource("Resource_drhju")
+rarity = 2
 metadata/_custom_type_script = "uid://bf803hpopt62d"

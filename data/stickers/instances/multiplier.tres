@@ -15,4 +15,5 @@ name = "x2"
 image = ExtResource("1_usuh8")
 description = "Multiply the score of the section by two"
 effect = SubResource("Resource_drhju")
+rarity = 1
 metadata/_custom_type_script = "uid://bf803hpopt62d"
