@@ -9,6 +9,7 @@ signal wheel_state_changed(old_state: FSMWheelConstants.Wheel, new_state: FSMWhe
 # Run signals
 signal run_init_requested(context: RunContext)
 signal seed_updated()
+signal quota_updated()
 
 # Points signal
 signal points_updated()

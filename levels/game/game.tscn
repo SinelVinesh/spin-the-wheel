@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://e7p2v3eu2u4k" path="res://entities/wheel/wheel.tscn" id="3_6ojey"]
 [ext_resource type="PackedScene" uid="uid://2sgeg35s06uw" path="res://ui/spin_button/spin_button.tscn" id="5_0axs7"]
 [ext_resource type="PackedScene" uid="uid://dl2y8u5j6l5d8" path="res://entities/pointer/pointer.tscn" id="6_mkwu1"]
+[ext_resource type="PackedScene" uid="uid://c8m2v4mgrt4en" path="res://ui/quota_tracker/quota_tracker.tscn" id="6_wsbxy"]
 [ext_resource type="PackedScene" uid="uid://c4rlnwvnlb5l0" path="res://entities/sticker/sticker.tscn" id="7_ge5v2"]
 [ext_resource type="Resource" uid="uid://cqtqsdwbwpett" path="res://data/stickers/instances/multiplier.tres" id="8_vay4l"]
 [ext_resource type="Resource" uid="uid://dl7bqqbw48rb0" path="res://data/stickers/instances/free_spin.tres" id="9_wsbxy"]
-[ext_resource type="Resource" uid="uid://xcfweqy3i4mv" path="res://data/stickers/instances/bonus.tres" id="10_81lwq"]
 [ext_resource type="PackedScene" path="res://ui/tooltip/tooltip.tscn" id="11_tooltip"]
 [ext_resource type="PackedScene" path="res://ui/spins_counter/spins_counter.tscn" id="12_spins_counter"]
 
@@ -36,7 +36,13 @@ offset_top = 277.0
 offset_right = 1103.0
 offset_bottom = 308.0
 
-[node name="SpinsCounter" parent="HUD" instance=ExtResource("12_spins_counter")]
+[node name="QuotaCounter" parent="HUD" unique_id=904190051 instance=ExtResource("6_wsbxy")]
+offset_left = 1050.0
+offset_top = 210.0
+offset_right = 1116.0
+offset_bottom = 233.0
+
+[node name="SpinsCounter" parent="HUD" unique_id=1278546231 instance=ExtResource("12_spins_counter")]
 offset_left = 1050.0
 offset_top = 240.0
 offset_right = 1130.0
@@ -60,4 +66,3 @@ sticker_info = ExtResource("9_wsbxy")
 
 [node name="Sticker" parent="Stickers" unique_id=334515122 instance=ExtResource("7_ge5v2")]
 position = Vector2(959, 92)
-sticker_info = ExtResource("10_81lwq")

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c8m2v4mgrt4en"]
+
+[ext_resource type="Script" uid="uid://bj48buvg5osw5" path="res://ui/quota_tracker/quota_tracker.gd" id="1_2sik3"]
+
+[node name="QuotaTracker" type="Label" unique_id=904190051]
+text = "Quota: 0"
+script = ExtResource("1_2sik3")
