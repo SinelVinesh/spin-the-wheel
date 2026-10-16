@@ -2,6 +2,7 @@ class_name StickerTooltip extends Node
 
 const OFFSET_BELOW_STICKER := Vector2(0.0, 40.0)
 const STICKER_COLLISION_MASK := 4
+const TITLE_FORMAT = "[%s] %s"
 
 @onready var _show_timer: Timer = $ShowTimer
 
@@ -38,7 +39,7 @@ func _on_show_timer_timeout() -> void:
 		return
 	_is_showing = true
 	var info := _sticker.sticker_info
-	EventBus.tooltip_show_requested.emit(info.name, info.description, _get_anchor())
+	EventBus.tooltip_show_requested.emit(TITLE_FORMAT % [StickerConstants.RarityName[info.rarity], info.name], info.description, _get_anchor())
 
 func _dismiss() -> void:
 	_show_timer.stop()
